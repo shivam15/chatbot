@@ -17,12 +17,12 @@ def indexPage():
 @app.route('/fb', methods=['GET'])
 def handle_verification():
 	print "Handling Verification."
-	if request.args.get('hub.verify_token', '') == app.config['FAceBOOK_OWN_WEBHOOK_VERIFY_TOKEN']:
+	if request.args.get('hub.verify_token', '') == app.config['FACEBOOK_OWN_WEBHOOK_VERIFY_TOKEN']:
 		print "Webhook verified!"
 		return request.args.get('hub.challenge', '')
 	else:
 		print "Wrong verification token!"
-		return "Wrong validation token"
+		return "Wrong verification token!"
 
 
 @app.route('/fb', methods=['POST'])
